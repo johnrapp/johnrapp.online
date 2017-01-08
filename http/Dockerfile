@@ -1,0 +1,4 @@
+FROM nginx
+COPY static /data/static
+COPY remote-laundry /data/tvatta
+COPY nginx.conf /etc/nginx/nginx.conf

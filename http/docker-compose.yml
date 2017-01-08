@@ -1,0 +1,10 @@
+http:
+  build: .
+  ports:
+   - "8080:80"
+  links:
+   - laundry
+laundry:
+  image: remote-laundry
+  ports:
+   - "8088:8080"
