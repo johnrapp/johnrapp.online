@@ -1,5 +1,6 @@
 http:
   build: .
+  dockerfile: Dockerpi
   ports:
    - "80:80"
   links:
