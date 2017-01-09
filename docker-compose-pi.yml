@@ -1,13 +1,9 @@
 http:
-  
-
-db:
-  image: db
-  volumes:
-   - "/home/pi/swinn-data:/data/db"
-web:
-  image: web
+  build: .
+  dockerfile: Dockerpi
   ports:
-   - "8080:8080"
+   - "80:80"
   links:
-   - db
+   - laundry
+laundry:
+  image: remote-laundry
