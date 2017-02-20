@@ -2,11 +2,130 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Johns startsida</title>
+
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+
+    <style>
+
+      body {
+      }
+
+      header {
+        width: 100%;
+        text-align: center;
+        background-image: url("res/header.png");
+        height: 284px;
+        padding-top: 40px;
+        box-sizing: border-box;
+        color: red;
+      }
+
+      #wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      #container {
+        width: 600px;
+      }
+
+      #container h2 {
+        margin-top: 0;
+      }
+
+      #container a {
+        text-decoration: none;
+      }
+
+      #container .link-container {
+        float: left;
+      }
+
+      #container .link-name {
+        position: relative;
+        bottom: 40px;
+        left: 20px;
+        color: red;
+        font-size: 40px;
+      }
+
+      aside {
+        width: 200px;
+        height: 900px;
+      }
+
+      aside .ad {
+        width: 100%;
+      }
+
+      footer {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+      }
+
+    </style>
   </head>
   <body>
-    <h1>Välkommen till min sida!</h1>
-    <a href="//tvatta.johnrapp.online">Tvätta</a>
-    <a href="//swinn.johnrapp.online">Swinn</a>
+    <header>
+      <h1>Välkommen till johnrapp.online! Webbens startsida.</h1>
+    </header>
+
+    <div id="wrapper">
+      <div id="container">
+        <article>
+          <h2>Prova någon av de här länkarna!</h2>
+          <div class="link-container">
+            <a href="//tvatta.johnrapp.online">
+              <img src="res/laundry.gif">
+              <div class="link-name">Tvätta</div>
+            </a>
+          </div>
+          <div class="link-container">
+            <a href="//swinn.johnrapp.online">
+              <img src="res/swinn.png">
+              <div class="link-name">Swinn</div>
+            </a>
+          </div>
+          <div class="link-container">
+            <a href="https://soundcloud.com/johnochsimme">
+              <img src="res/rapp.gif">
+              <div class="link-name">Rapp</div>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <aside>
+        <div>Annons:</div>
+        <a href="https://stockholm.craigslist.se/search/cas" target="_blank">
+          <img src="res/ad1.png" class="ad"></img>
+        </a>
+      </aside>
+    </div>
+
+    <hr>
+
+    <footer>
+      <div>Business inquiries:</div>
+      <a href="mailto:johnsimonrapp@gmail.com?Subject=Booking%20of%20private%20show">
+        <img src="res/private-show.gif">
+      </a>
+    </footer>
+
+    <script>
+      const adCount = 5;
+
+      const img = document.querySelector('img.ad');
+      let currentAd = 1;
+
+      setInterval(() => {
+        currentAd = currentAd % adCount + 1;
+        img.src = `res/ad${currentAd}.png`;
+      }, 2000);
+
+    </script>
   </body>
 </html>
