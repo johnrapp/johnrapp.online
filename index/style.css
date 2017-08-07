@@ -80,6 +80,8 @@ header .center-text span {
 
 .content-container {
 	width: 900px;
+	padding-left: 20px;
+	padding-right: 20px;
 	margin: auto;
 }
 
@@ -168,4 +170,69 @@ header .center-text span {
 
 .marquee-pusher {
 	width: 200px;
+}
+
+@media (max-width: 1200px) {
+	header .center-text {
+		font-size: 140px;
+	}
+}
+
+@media (max-width: 1000px) {
+	header .center-text {
+		font-size: 120px;
+	}
+} 
+
+@media (max-width: 900px) {
+	header .center-text {
+		font-size: 100px;
+	}
+
+	.background {
+		top: 80px;
+		width: 2000px;
+	}
+}
+
+@media (max-width: 750px) {
+	header .center-text {
+		font-size: 80px;
+	}
+
+	.background {
+		top: 35px;
+	}
+
+	header .center-text span {
+		top: 50px;
+	}
+
+	.text1 {
+		top: calc(50px - 4px) !important;
+	}
+
+	.text3 {
+		top: calc(50px + 3px) !important;
+	}
+}
+
+@media (max-width: 600px) {
+	header .center-text {
+		font-size: 60px;
+	}
+
+	.background {
+		top: 20px;
+	}
+}
+
+@media (max-width: 450px) {
+	header .center-text {
+		font-size: 40px;
+	}
+
+	.background {
+		top: 5px;
+	}
 }
