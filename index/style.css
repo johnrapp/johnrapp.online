@@ -45,6 +45,10 @@ header .center-text {
 	width: 100vw;
 }
 
+header .center-text:hover {
+	display: none;
+}
+
 header .center-text span {
 	position: absolute;
 	left: 50%;
@@ -69,7 +73,7 @@ header .center-text span {
 
 .after-header {
 	position: absolute;
-	top: 300px;
+	top: 270px;
 	left: 0;
 	width: 100vw;
 }
@@ -80,19 +84,25 @@ header .center-text span {
 }
 
 #rap-container {
-	width: 350px;
-	height: 450px;
+	width: 340px;
+	height: 390px;
 	position: relative;
 	font-size: 18px;
 }
 
 #rap-container div {
 	position: absolute;
+	transition: top 200ms, left 200ms, width 200ms, height 200ms;
 }
 
 #rap-container .pink-container {
 	width: 300px;
 	height: 350px;
+	left: 10px;
+	top: 10px;
+}
+
+#rap-container:hover .pink-container {
 	left: 0;
 	top: 0;
 }
@@ -100,18 +110,30 @@ header .center-text span {
 #rap-container .white-container {
 	width: 280px;
 	height: 330px;
-	left: 20px;
-	top: 20px;
+	left: 30px;
+	top: 30px;
 	box-sizing: border-box;
 	padding: 20px;
 	color: black;
 }
+#rap-container:hover .white-container {
+	width: 260px;
+	height: 310px;
+	left: 40px;
+	top: 40px;
+}
+
 
 #rap-container .yellow-container {
 	width: 305px;
 	height: 355px;
-	left: 20px;
-	top: 20px;
+	left: 30px;
+	top: 30px;
+}
+
+#rap-container:hover .yellow-container {
+	left: 40px;
+	top: 40px;
 }
 
 .pink-container {
@@ -131,4 +153,19 @@ header .center-text span {
 	font-size: 40px;
 	text-align: right;
 	width: 100%;
+}
+
+#bottom-strip {
+	background: #222;
+	width: 100vw;
+	height: 25px;
+	padding-top: 2px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+}
+
+.marquee-pusher {
+	width: 200px;
 }
