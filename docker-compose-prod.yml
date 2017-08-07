@@ -6,3 +6,5 @@ services:
     - "80:80"
   draw:
     build: ./services/draw
+    ports:
+    - "8080:80"
