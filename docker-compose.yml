@@ -6,3 +6,9 @@ services:
     - "80:80"
     volumes:
     - "./index:/data/index"
+  draw:
+    build: ./services/draw
+    ports:
+      - "8080:80"
+    volumes:
+    - "./services/draw/public:/usr/src/app/public"
