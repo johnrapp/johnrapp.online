@@ -1,0 +1,21 @@
+{
+  "name": "johnrapp.online",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "docker-compose -f docker-compose-dev.yml up",
+    "built": "docker build -t http ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnrapp/johnrapp.online.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnrapp/johnrapp.online/issues"
+  },
+  "homepage": "https://github.com/johnrapp/johnrapp.online#readme",
+  "description": ""
+}

@@ -1,9 +1,0 @@
-http:
-  build: .
-  dockerfile: Dockerpi
-  ports:
-   - "80:80"
-  links:
-   - laundry
-laundry:
-  image: remote-laundry
