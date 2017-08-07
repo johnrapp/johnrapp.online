@@ -3,12 +3,14 @@ services:
   http:
     build: .
     ports:
-    - "80:80"
+      - "80:80"
     volumes:
-    - "./index:/data/index"
+      - "./index:/data/index"
+    links:
+      - "draw"
   draw:
     build: ./services/draw
     ports:
       - "8080:80"
     volumes:
-    - "./services/draw/public:/usr/src/app/public"
+      - "./services/draw/public:/usr/src/app/public"
