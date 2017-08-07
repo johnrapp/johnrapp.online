@@ -7,6 +7,10 @@ body {
 	font-style: italic;
 }
 
+a {
+	color: black;
+}
+
 .noise {
 	position: absolute;
 	top: 0;
@@ -76,9 +80,10 @@ header .center-text span {
 }
 
 #rap-container {
-	width: 300px;
-	height: 400px;
+	width: 350px;
+	height: 450px;
 	position: relative;
+	font-size: 18px;
 }
 
 #rap-container div {
@@ -86,25 +91,25 @@ header .center-text span {
 }
 
 #rap-container .pink-container {
-	width: 250px;
-	height: 300px;
+	width: 300px;
+	height: 350px;
 	left: 0;
 	top: 0;
 }
 
 #rap-container .white-container {
-	width: 230px;
-	height: 280px;
+	width: 280px;
+	height: 330px;
 	left: 20px;
 	top: 20px;
 	box-sizing: border-box;
-	padding: 30px;
+	padding: 20px;
 	color: black;
 }
 
 #rap-container .yellow-container {
-	width: 255px;
-	height: 305px;
+	width: 305px;
+	height: 355px;
 	left: 20px;
 	top: 20px;
 }
@@ -123,7 +128,7 @@ header .center-text span {
 
 .box-title {
 	position: static !important;
-	font-size: 22px;
+	font-size: 40px;
 	text-align: right;
 	width: 100%;
 }
