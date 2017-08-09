@@ -1,3 +1,4 @@
 module.exports = {
-    debug: (...args) => console.debug(...args)
+    info: (...args) => console.log(...args),
+    debug: (...args) => console.debug(...args),
 };

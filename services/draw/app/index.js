@@ -6,13 +6,13 @@ module.exports = function drawApp(io) {
         socket.emit('drawing', getDrawing());
 
         socket.on('drawing.clear', () => {
-            log('CLEARED');
+            log.info('CLEARED');
             const drawing = clearDrawing();
             io.emit('drawing', drawing);
         });
 
         socket.on('path.begin', ({ id, point, color }) => {
-            log('NEW PATH', color);
+            log.info('NEW PATH', color);
             const path = createPath(id, point, color);
             io.emit('path.update', { id, path });
         });
