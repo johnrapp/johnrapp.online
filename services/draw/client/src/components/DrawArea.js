@@ -6,7 +6,7 @@ import DrawingPath from '../services/path';
 class DrawArea extends Component {
   currentPath = null;
   render() {
-    const { drawing, pathColor } = this.state;
+    const { drawing, pathColor } = this.props;
     return (
       <TouchControls
         onBeginPath={point => {
