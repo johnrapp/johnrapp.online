@@ -1,0 +1,13 @@
+.draw-container > .TouchControls {
+    max-width: 80%;
+    width: 600px;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.controls-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}

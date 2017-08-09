@@ -7,6 +7,8 @@ import { drawingObservable, clearDrawing } from '../services/drawing';
 import DrawingPath from '../services/path';
 import { defaultPathColor } from '../services/path-colors';
 
+import './DrawApp.css';
+
 class DrawApp extends Component {
   currentPath = null;
   state = {
@@ -28,20 +30,23 @@ class DrawApp extends Component {
 
     return (
       <div>
-        <TouchControls
-          onBeginPath={point => {
-            this.currentPath = new DrawingPath(point, pathColor)
-          }}
-          onAppendPath={point => {
-            this.currentPath.append(point);
-          }}
-          onEndPath={point => {
-            this.currentPath = null;
-          }}
-        >
-          <Canvas drawing={drawing} />
-        </TouchControls>
-        <div style={{ marginLeft: 10 }}>
+        <div className={'draw-container'}>
+          <TouchControls
+            onBeginPath={point => {
+              this.currentPath = new DrawingPath(point, pathColor)
+            }}
+            onAppendPath={point => {
+              this.currentPath.append(point);
+            }}
+            onEndPath={point => {
+              this.currentPath = null;
+            }}
+          >
+            <Canvas drawing={drawing} />
+          </TouchControls>
+        </div>
+        
+        <div className={'controls-container'}>
           <RaisedButton
             label="Clear"
             onTouchTap={clearDrawing}/>

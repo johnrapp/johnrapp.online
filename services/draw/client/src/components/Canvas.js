@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-const CANVAS_WIDTH = 350;
-const CANVAS_HEIGHT = 350;
+const CANVAS_WIDTH = 500;
+const CANVAS_HEIGHT = 500;
 
 class Canvas extends Component {
   renderCanvas(canvas, paths) {
@@ -14,11 +14,11 @@ class Canvas extends Component {
 
     const drawPath = ({ id, points, color }) => {
       const first = points[0];
-      ctx.moveTo(first.x, first.y);
+      ctx.moveTo(first.x * CANVAS_WIDTH, first.y * CANVAS_HEIGHT);
 
       ctx.strokeStyle = color;
       ctx.beginPath();
-      points.forEach(({x, y}) => ctx.lineTo(x,y));
+      points.forEach(({x, y}) => ctx.lineTo(x * CANVAS_WIDTH, y * CANVAS_HEIGHT));
       ctx.stroke();
     };
 
@@ -30,14 +30,13 @@ class Canvas extends Component {
     const { drawing: { paths } } = this.props; 
     
     return (
-      
         <canvas
           width={CANVAS_WIDTH}
           height={CANVAS_HEIGHT}
           ref={canvas => this.renderCanvas(canvas, paths)}
           style={{
-            margin: 10,
             border: '1px solid black',
+            width: '100%',
           }}
         />
     );

@@ -1,55 +1,61 @@
 import React, { Component } from 'react';
 
+function computedDimensions(element) {
+    const styles = getComputedStyle(element);
+    const dimensionInPx = string => +string.slice(0, -('px'.length));
+    return {
+      width: dimensionInPx(styles.width),
+      height: dimensionInPx(styles.height)
+    };
+}
+function relativeCoordinates({ width, height }, absoluteX, absoluteY) {
+  return { x: absoluteX / width, y: absoluteY / height };
+}
+
 function relativeMouseCoordinates(event) {
   const target = event.target;
-  const x = event.pageX - target.offsetLeft;
-  const y = event.pageY - target.offsetTop;
-  return { x, y };
+  const absoluteX = event.pageX - target.offsetLeft;
+  const absoluteY = event.pageY - target.offsetTop;
+
+  return relativeCoordinates(computedDimensions(target), absoluteX, absoluteY)
 }
 
 function relativeTouchCoordinates(event) {
   const target = event.target;
-  const x = event.touches[0].pageX - target.offsetLeft;
-  const y = event.touches[0].pageY - target.offsetTop;
-  return { x, y };
+  const absoluteX = event.touches[0].pageX - target.offsetLeft;
+  const absoluteY = event.touches[0].pageY - target.offsetTop;
+
+  return relativeCoordinates(computedDimensions(target), absoluteX, absoluteY)
 }
 
 class TouchControls extends Component {
   render() {
     const { children, onBeginPath, onAppendPath, onEndPath } = this.props; 
     return (
-        <div
-            style={{
-                display: 'inline',
-            }}
-            onMouseEnter={e => { this.mouseInside = true }}
-            onMouseLeave={e => {
-                this.mouseInside = false
-            //    onEndPath(relativeMouseCoordinates(e));
-            }}
+        <div className={'TouchControls'}
             onMouseDown={e => {
-                this.mouseDown = true;
+                this.ongoingPath = true;
                 onBeginPath(relativeMouseCoordinates(e));
             }}
             onMouseUp={e => {
-                this.mouseDown = false;
+                this.ongoingPath = false;
                 onEndPath();
             }}
             onMouseMove={e => {
-                if (this.mouseDown) {
+                if (this.ongoingPath) {
                     onAppendPath(relativeMouseCoordinates(e));
                 }
             }}
             onTouchStart={e => {
-                this.mouseDown = true;
+                this.ongoingPath = true;
                 onBeginPath(relativeTouchCoordinates(e));
             }}
             onTouchEnd={e => {
-                this.mouseDown = false;
+                this.ongoingPath = false;
                 onEndPath();
             }}
             onTouchMove={e => {
-                if (this.mouseDown) {
+                if (this.ongoingPath) {
                     onAppendPath(relativeTouchCoordinates(e));
                 }
             }}
