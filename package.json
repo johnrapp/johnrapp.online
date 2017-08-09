@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "docker-compose build && docker-compose up",
-    "prod": "git pull && docker-compose -f docker-compose-prod.yml build && docker-compose -f docker-compose-prod.yml up -d"
+    "start": "docker-compose up --build",
+    "prod": "git pull docker-compose -f docker-compose-prod.yml up -d --build"
   },
   "repository": {
     "type": "git",
