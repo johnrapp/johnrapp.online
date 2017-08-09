@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import ColorPicker from './ColorPicker';
-import Canvas from './Canvas';
-import TouchControls from './TouchControls';
+import DrawArea from './DrawArea';
 import { drawingObservable, clearDrawing } from '../services/drawing';
-import DrawingPath from '../services/path';
 import { defaultPathColor } from '../services/path-colors';
 
 import './DrawApp.css';
@@ -31,19 +29,7 @@ class DrawApp extends Component {
     return (
       <div>
         <div className={'draw-container'}>
-          <TouchControls
-            onBeginPath={point => {
-              this.currentPath = new DrawingPath(point, pathColor)
-            }}
-            onAppendPath={point => {
-              this.currentPath.append(point);
-            }}
-            onEndPath={point => {
-              this.currentPath = null;
-            }}
-          >
-            <Canvas drawing={drawing} />
-          </TouchControls>
+          <DrawArea drawing={drawing} pathColor={pathColor} />
         </div>
         
         <div className={'controls-container'}>
