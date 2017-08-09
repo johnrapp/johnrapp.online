@@ -1,39 +1,30 @@
 import Rx from 'rx';
 import socket from './socket';
 
-const drawing = { paths: {} };
+let drawing;
 
 const drawingSubject = new Rx.Subject();
 
 export const drawingObservable = drawingSubject;
 
-export function beginPath(id, point) {
-    socket.emit('path.begin', { id, point });
+export function beginPath(id, point, color) {
+    socket.emit('path.begin', { id, point, color });
 }
 
 export function appendPoint(id, point) {
     socket.emit('path.appendPoint', { id, point });
 }
 
-socket.on('paths', (paths) => {
-    drawing.paths = paths;
+export function clearDrawing() {
+    socket.emit('drawing.clear');
+}
+
+socket.on('drawing', (drw) => {
+    drawing = drw;
     drawingObservable.onNext(drawing);
 })
-
 
 socket.on('path.update', ({ id, path }) => {
     drawing.paths[id] = path;
     drawingObservable.onNext(drawing);
 });
-
-// export function setPoint(point) {
-//     socket.emit('point added', point);
-//     points.push(point);
-//     pointsObservable.onNext(points);
-// }
-
-// socket.on('point added', (point => {
-//     points.push(point);
-//     console.log(point)
-//     pointsSubject.onNext(points);
-// }))

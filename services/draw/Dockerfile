@@ -1,3 +1,3 @@
 FROM node:onbuild
 
-#TODO onbuild build client
+ONBUILD RUN cd /usr/src/app/client && npm run deploy && cd ..
