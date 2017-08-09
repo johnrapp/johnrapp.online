@@ -16,10 +16,12 @@ function relativeTouchCoordinates(event) {
 
 class TouchControls extends Component {
   render() {
-    const { children, onStartPath, onAppendPath, onEndPath } = this.props; 
+    const { children, onBeginPath, onAppendPath, onEndPath } = this.props; 
     return (
         <div
-            style={{ display: 'inline' }}
+            style={{
+                display: 'inline',
+            }}
             onMouseEnter={e => { this.mouseInside = true }}
             onMouseLeave={e => {
                 this.mouseInside = false
@@ -27,7 +29,7 @@ class TouchControls extends Component {
             }}
             onMouseDown={e => {
                 this.mouseDown = true;
-                onStartPath(relativeMouseCoordinates(e));
+                onBeginPath(relativeMouseCoordinates(e));
             }}
             onMouseUp={e => {
                 this.mouseDown = false;
@@ -40,7 +42,7 @@ class TouchControls extends Component {
             }}
             onTouchStart={e => {
                 this.mouseDown = true;
-                onStartPath(relativeTouchCoordinates(e));
+                onBeginPath(relativeTouchCoordinates(e));
             }}
             onTouchEnd={e => {
                 this.mouseDown = false;
@@ -48,9 +50,9 @@ class TouchControls extends Component {
             }}
             onTouchMove={e => {
                 if (this.mouseDown) {
-                        onAppendPath(relativeTouchCoordinates(e));
-                    }
-                }}
+                    onAppendPath(relativeTouchCoordinates(e));
+                }
+            }}
             >
             { children }
         </div>
