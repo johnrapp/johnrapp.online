@@ -1,4 +1,4 @@
-const { getDrawing, clearDrawing, createPath, updatePath } = require('./drawing');
+const { getDrawing, clearDrawing, putPathPoint } = require('./drawing');
 const log = require('./log');
 
 module.exports = function drawApp(io) {
@@ -11,16 +11,9 @@ module.exports = function drawApp(io) {
             io.emit('drawing', drawing);
         });
 
-        socket.on('path.begin', ({ id, point, color }) => {
-            log.info('NEW PATH', color);
-            const path = createPath(id, point, color);
-            io.emit('path.update', { id, path });
+        socket.on('path.putPoint', ({ id, point, color }) => {
+            const path = putPathPoint(id, point, color);
+            socket.broadcast.emit('path.put', path);
         });
-        
-        socket.on('path.appendPoint', ({ id, point }) => {
-            const path = updatePath(id, point);
-            io.emit('path.update', { id, path });
-        });
-
     });
 };

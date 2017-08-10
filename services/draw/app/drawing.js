@@ -12,16 +12,17 @@ module.exports = {
         drawing = emptyDrawing();
         return drawing;
     },
-    createPath: (id, point, color) => {
-        const path = createPath(point, color);
-        drawing.paths[id] = path;
+    putPathPoint: (id, point, color) => {
+        let path;
+        if (id in drawing.paths) {
+            path = drawing.paths[id];
+            path.points.push(point);
+        } else {
+            path = createPath(point, color);
+            drawing.paths[id] = path;
+        }
         return path;
     },
-    updatePath: (id, point) => {
-        const path = drawing.paths[id];
-        path.points.push(point);
-        return path;
-    }
 };
 
 function createPath(point, color) {
