@@ -6,7 +6,73 @@
 
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    
+    <!--
+		The variables used by FuckAdBlock is initialized
+		to be sure that another script has not used
+	-->
+    <script>var fuckAdBlock = undefined, FuckAdBlock = undefined;</script>
+    <!--
+		Added the attribute "integrity" to be sure that the original script
+		is not modified by an extension or other.
+    -->
+    <script src="lib.js"></script>
+    <script>
+
+        var adBlockDetected = function() {
+            setTimeout((function() {
+              body = document.querySelector('body');
+              body.innerHTML += `
+              <div id="fuckAds">
+                <div class="title">Stopp där!</div>
+                Vi ser att du använder en annonsblockerare... <br><br>
+                Vi kan förstå, vi använder också annonsblockerare ibland men det här är vår enda inkomstkälla. Vi är en oberoende organisation som inte tar några pengar från lobbyorgainsationer, däremot är våra annanoser alltid relevanta för dig [vit man, ung, ensam].
+                <br><br>
+                Vänligen stäng av din annonsblockerare och då är du hjärtligt välkommen tillbaka <3
+              </div>
+            `;  
+            }), 1500);
+            
+        }
+        var adBlockUndetected = function() {
+        }
+        if(typeof  FuckAdBlock === 'undefined') {
+            $(document).ready(adBlockDetected);
+        } else {
+            fuckAdBlock.on(true, adBlockDetected).on(false, adBlockUndetected);
+        }
+        // It removes the variable "fuckadblock" and "FuckAdBlock
+        // so that it not be exploited by another script later
+        // but beware, you can not use it too!
+        fuckAdBlock = undefined;
+        
+        // Do not use FuckAdBlock outside this area
+        // (between importing the script and the line above)
+    </script>    
+
     <style>
+
+      #fuckAds {
+        height: 100vh;
+        width: 100vw;
+        background: yellow;
+        color: black;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000000;
+        padding-top: 100px;
+        box-sizing: border-box;
+        padding-left: 20%;
+        padding-right: 20%;
+        font-size: 30px;
+        font-weight: bold;
+      }
+
+      #fuckAds .title {
+        font-size: 60px;
+      }
 
       body {
       }
@@ -69,6 +135,10 @@
     </style>
   </head>
   <body>
+
+
+      
+
     <header>
       <h1>Välkommen till johnrapp.online! Webbens startsida.</h1>
     </header>
@@ -85,8 +155,8 @@
           </div>
           <div class="link-container">
             <a href="//swinn.johnrapp.online">
-              <img src="res/swinn.png">
-              <div class="link-name">Swinn</div>
+              <img src="res/draw.gif">
+              <div class="link-name">Rita</div>
             </a>
           </div>
           <div class="link-container">
