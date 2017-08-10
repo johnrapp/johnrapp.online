@@ -13,7 +13,7 @@ module.exports = function drawApp(io) {
 
         socket.on('path.putPoint', ({ id, point, color }) => {
             const path = putPathPoint(id, point, color);
-            socket.broadcast.emit('path.put', path);
+            socket.broadcast.emit('path.put', { id, path });
         });
     });
 };
