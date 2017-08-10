@@ -10,11 +10,8 @@ module.exports = function archiveDrawing(drawing, name) {
         const idContents = fs.readFileSync(idPath, 'utf8');
         prevId = parseInt(idContents, 10);
     } catch(e) {
-    console.log('read caught', e)
         prevId = -1;
     }
-
-    console.log('found', prevId, archivedDrawings)
 
     const id = prevId + 1;
     archivedDrawings.unshift(archivedDrawing(id, drawing, name));
@@ -22,10 +19,8 @@ module.exports = function archiveDrawing(drawing, name) {
     try {
         fs.writeFileSync(drawingsPath, JSON.stringify(archivedDrawings));
         fs.writeFileSync(idPath, id.toString(), 'utf8');
-    console.log('saved', id)
         return { success: true, id };
     } catch(e) {
-    console.log('save caught', e)
         return { error: e };
     }
 };
