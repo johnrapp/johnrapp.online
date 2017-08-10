@@ -1,3 +1,8 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -43,10 +48,6 @@ a {
 header .center-text {
 	font-size: 160px;
 	width: 100vw;
-}
-
-header .center-text:hover {
-	display: none;
 }
 
 header .center-text span {
@@ -193,6 +194,10 @@ header .center-text span {
 		top: 80px;
 		width: 2000px;
 	}
+
+	.after-header {
+		top: 200px;
+	}
 }
 
 @media (max-width: 750px) {
@@ -215,6 +220,10 @@ header .center-text span {
 	.text3 {
 		top: calc(50px + 3px) !important;
 	}
+
+	.after-header {
+		top: 140px;
+	}
 }
 
 @media (max-width: 600px) {
@@ -225,14 +234,28 @@ header .center-text span {
 	.background {
 		top: 20px;
 	}
+
+	.after-header {
+		top: 120px;
+	}
 }
 
 @media (max-width: 450px) {
 	header .center-text {
-		font-size: 40px;
+		font-size: 50px;
 	}
 
 	.background {
 		top: 5px;
+	}
+
+	.after-header {
+		top: 100px;
+	}
+}
+
+@media (max-width: 380px) {
+	header .center-text {
+		font-size: 40px;
 	}
 }
