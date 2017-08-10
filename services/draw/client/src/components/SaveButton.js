@@ -25,13 +25,21 @@ class ClearButton extends Component {
 
   save(name) {
     saveDrawing(name);
-    this.setState(initialState);
+    this.setState({
+      dialogOpen: false,
+      saveResult: null
+    });
+  }
+
+  view() {
+    const location = window.location;
+    location.pathname = '/archive';
   }
 
   render() {
     const { dialogOpen, name, saveResult } = this.state;
 
-    const openDialog = () => this.setState({ dialogOpen: true });
+    const openDialog = () => this.setState({ dialogOpen: true, name: '' });
     const closeDialog = () => this.setState({ dialogOpen: false });
 
     const actions = [
@@ -74,7 +82,7 @@ class ClearButton extends Component {
           message={'Save successful!'}
           action="view"
           autoHideDuration={2000}
-          onActionTouchTap={() => {}}
+          onActionTouchTap={() => this.view()}
           onRequestClose={() => this.setState({ saveResult: null })}
         />
         <Snackbar
@@ -82,7 +90,7 @@ class ClearButton extends Component {
           message={'Save error'}
           action="retry"
           autoHideDuration={2000}
-          onActionTouchTap={() => {}}
+          onActionTouchTap={() => this.save(name)}
           onRequestClose={() => this.setState({ saveResult: null })}
         />
       </span>

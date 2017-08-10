@@ -18,10 +18,11 @@ class ViewApp extends Component {
     }
 
     return (
-      <div className={'ViewArchive'}>
+      <div className={'ViewArchive'} style={{ overflowY: 'scroll', height: '100vh' }}>
         {drawings.map(({ id, name, drawing }) => (
-          <div style={{ width: 500 }}>
-            <Canvas key={id} drawing={drawing} />
+          <div key={id} style={{ width: 500 }}>
+            <div>{ id }: { name }</div>
+            <Canvas drawing={drawing} />
           </div>
         ))}
       </div>
