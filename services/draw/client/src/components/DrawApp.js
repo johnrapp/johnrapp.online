@@ -26,7 +26,7 @@ class DrawApp extends Component {
     }
 
     return (
-      <div>
+      <div className={'DrawApp'}>
         <div className={'draw-container'}>
           <DrawArea drawing={drawing} pathColor={pathColor} />
         </div>

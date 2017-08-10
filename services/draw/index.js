@@ -24,3 +24,9 @@ app.use(cors());
 app.use(morgan('tiny'));
 
 drawApp(io);
+
+// Enable HTML5 routing, serve index.html regardless of route
+// Must be declared after routes such as /api
+app.get('*', (req, res) => {
+  res.sendFile(`${__dirname}/public/index.html`);
+});
