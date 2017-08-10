@@ -70,7 +70,7 @@ class ClearButton extends Component {
           onRequestClose={closeDialog}
         >
           <TextField
-            hintText="Name"
+            hintText="Name of masterpiece"
             value={name}
             onChange={(ev, val) => this.setState({ name: val })}
             onKeyUp={(e) => { if (e.keyCode === 13) { name && this.save(name); } }}
