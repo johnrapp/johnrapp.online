@@ -8,3 +8,9 @@ services:
     build: ./services/draw
     ports:
     - "8080:80"
+  draw-archive:
+    build: ./services/draw-archive
+    ports:
+      - "8081:80"
+    volumes:
+      - "/usr/data/draw-archive:/usr/data"
