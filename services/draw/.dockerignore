@@ -3,6 +3,12 @@
 # dependencies
 /node_modules
 
+# JOHN: A bit of a hack but it works!
+node_modules
+**/node_modules
+client/node_modules
+client/node_modules/**
+
 # testing
 /coverage
 

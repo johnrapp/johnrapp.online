@@ -33,6 +33,7 @@ class DrawApp extends Component {
         </div>
         
         <div className={'controls-container'}>
+          <ClearDrawing>
           <RaisedButton
             label="Clear"
             onTouchTap={clearDrawing}/>
