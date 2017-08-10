@@ -3,14 +3,19 @@ import React, { Component } from 'react';
 const CANVAS_WIDTH = 500;
 const CANVAS_HEIGHT = 500;
 
+const LINE_JOIN = 'round';
+const LINE_CAP = 'round';
+const LINE_WIDTH = 5;
+
 class Canvas extends Component {
   renderCanvas(canvas, paths) {
     if (!canvas) { return; }
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-    ctx.lineJoin = "round";
-    ctx.lineWidth = 5;
+    ctx.lineJoin = LINE_JOIN;
+    ctx.lineCap = LINE_CAP;
+    ctx.lineWidth = LINE_WIDTH;
 
     const drawPath = ({ id, points, color }) => {
       const first = points[0];

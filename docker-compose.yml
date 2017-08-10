@@ -13,4 +13,4 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - "./services/draw/public:/usr/src/app/public"
+      - "./services/draw:/usr/src/app"

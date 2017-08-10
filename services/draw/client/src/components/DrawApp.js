@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
 import ColorPicker from './ColorPicker';
 import DrawArea from './DrawArea';
+import ClearButton from './ClearButton';
 import { drawingObservable, clearDrawing } from '../services/drawing';
 import { defaultPathColor } from '../services/path-colors';
 
 import './DrawApp.css';
 
 class DrawApp extends Component {
-  currentPath = null;
   state = {
     drawing: null,
     pathColor: defaultPathColor()
@@ -33,10 +32,7 @@ class DrawApp extends Component {
         </div>
         
         <div className={'controls-container'}>
-          <ClearDrawing>
-          <RaisedButton
-            label="Clear"
-            onTouchTap={clearDrawing}/>
+          <ClearButton onClear={clearDrawing} />
           <ColorPicker
             pathColor={pathColor}
             onPathColorChange={pathColor => this.setState({ pathColor })}

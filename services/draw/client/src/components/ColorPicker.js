@@ -38,7 +38,7 @@ class ColorPicker extends Component {
             open={this.state.open}
             anchorEl={this.state.anchorEl}
             anchorOrigin={{horizontal: 'left', vertical: 'bottom'}}
-            targetOrigin={{horizontal: 'left', vertical: 'top'}}
+            targetOrigin={{horizontal: 'left', vertical: 'bottom'}}
             onRequestClose={this.handleRequestClose}
           >
             <Menu>
