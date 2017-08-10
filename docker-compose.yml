@@ -14,3 +14,9 @@ services:
       - "8080:80"
     volumes:
       - "./services/draw:/usr/src/app"
+  draw-archive:
+    build: ./services/draw-archive
+    ports:
+      - "8081:80"
+    volumes:
+      - "./data/draw-archive:/usr/data"

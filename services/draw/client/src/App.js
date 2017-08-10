@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MaterialContainer from './components/MaterialContainer';
 import DrawApp from './components/DrawApp';
 import ViewApp from './components/ViewApp';
+import ViewArchive from './components/ViewArchive';
 
 import {
   BrowserRouter as Router,
@@ -18,6 +19,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={DrawApp}/>
             <Route exact path="/view" component={ViewApp}/>
+            <Route exact path="/archive" component={ViewArchive}/>
             <Redirect to='/' />
           </Switch>
         </Router>

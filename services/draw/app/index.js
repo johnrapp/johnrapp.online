@@ -1,4 +1,5 @@
 const { getDrawing, clearDrawing, putPathPoint } = require('./drawing');
+const { archiveDrawing } = require('./archive');
 const log = require('./log');
 
 module.exports = function drawApp(io) {
@@ -11,9 +12,15 @@ module.exports = function drawApp(io) {
             io.emit('drawing', drawing);
         });
 
-        socket.on('path.putPoint', ({ id, point, color }) => {
-            const path = putPathPoint(id, point, color);
+        socket.on('path.putPoint', ({ id, point, color, brushSize }) => {
+            const path = putPathPoint(id, point, color, brushSize);
             socket.broadcast.emit('path.put', { id, path });
+        });
+
+        socket.on('drawing.archive', async ({ name }) => {
+            log.info('ARCHIVE', name);
+            const result = await archiveDrawing(getDrawing(), name);
+            socket.emit('drawing.archiveResult', result);
         });
     });
 };

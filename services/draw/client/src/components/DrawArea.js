@@ -6,12 +6,12 @@ import DrawingPath from '../services/path';
 class DrawArea extends Component {
   currentPath = null;
   render() {
-    const { drawing, pathColor } = this.props;
+    const { drawing, pathColor, brushSize } = this.props;
     
     return (
       <TouchControls
         onBeginPath={point => {
-            this.currentPath = new DrawingPath(point, pathColor)
+            this.currentPath = new DrawingPath(point, pathColor, brushSize)
         }}
         onAppendPath={point => {
             this.currentPath.append(point);

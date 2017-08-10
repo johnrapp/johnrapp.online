@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import { clearDrawing } from '../services/drawing';
 
 class ClearButton extends Component {
 
   state = { dialogOpen: false };
 
   render() {
-    const { onClear } = this.props;
     const { dialogOpen } = this.state;
 
     const openDialog = () => this.setState({ dialogOpen: true });
@@ -24,7 +24,7 @@ class ClearButton extends Component {
         label="Clear"
         primary={true}
         onTouchTap={() => {
-          onClear();
+          clearDrawing();
           closeDialog();
         }}
       />,

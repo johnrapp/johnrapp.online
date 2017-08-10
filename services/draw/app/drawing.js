@@ -12,19 +12,19 @@ module.exports = {
         drawing = emptyDrawing();
         return drawing;
     },
-    putPathPoint: (id, point, color) => {
+    putPathPoint: (id, point, color, brushSize) => {
         let path;
         if (id in drawing.paths) {
             path = drawing.paths[id];
             path.points.push(point);
         } else {
-            path = createPath(point, color);
+            path = createPath(point, color, brushSize);
             drawing.paths[id] = path;
         }
         return path;
     },
 };
 
-function createPath(point, color) {
-    return { points: [point], color };
+function createPath(point, color, brushSize) {
+    return { points: [point], color, brushSize };
 }

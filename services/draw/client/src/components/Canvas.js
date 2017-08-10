@@ -5,7 +5,6 @@ const CANVAS_HEIGHT = 500;
 
 const LINE_JOIN = 'round';
 const LINE_CAP = 'round';
-const LINE_WIDTH = 5;
 
 class Canvas extends Component {
   renderCanvas(canvas, paths) {
@@ -15,13 +14,13 @@ class Canvas extends Component {
 
     ctx.lineJoin = LINE_JOIN;
     ctx.lineCap = LINE_CAP;
-    ctx.lineWidth = LINE_WIDTH;
 
-    const drawPath = ({ id, points, color }) => {
+    const drawPath = ({ id, points, color, brushSize }) => {
       const first = points[0];
       ctx.moveTo(first.x * CANVAS_WIDTH, first.y * CANVAS_HEIGHT);
 
       ctx.strokeStyle = color;
+      ctx.lineWidth = brushSize;
       ctx.beginPath();
       points.forEach(({x, y}) => ctx.lineTo(x * CANVAS_WIDTH, y * CANVAS_HEIGHT));
       ctx.stroke();
