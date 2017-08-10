@@ -17,7 +17,7 @@ module.exports = function archiveDrawing(drawing, name) {
     console.log('found', prevId, archivedDrawings)
 
     const id = prevId + 1;
-    archivedDrawings.push(archivedDrawing(id, drawing, name));
+    archivedDrawings.unshift(archivedDrawing(id, drawing, name));
 
     try {
         fs.writeFileSync(drawingsPath, JSON.stringify(archivedDrawings));
