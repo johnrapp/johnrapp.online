@@ -30,7 +30,7 @@ class DrawApp extends Component {
     if (!drawing) {
       return null;
     }
-    log(Object.entries(drawing.paths).length && Object.entries(drawing.paths)[0][1].points)
+    log(Object.entries(drawing.paths).length && Object.entries(drawing.paths)[0][1].points.length)
     return (
       <div className={'DrawApp'}>
         <div className={'draw-container'}>
