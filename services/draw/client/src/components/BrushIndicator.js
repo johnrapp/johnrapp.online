@@ -5,7 +5,11 @@ class BrushIndicator extends Component {
   render() {
     const { brushColor, brushSize } = this.props;
     const containerStyle = {
-      display: 'inline-block',
+      display: 'inline-flex',
+      alignItems: 'center',
+      marginLeft: 16,
+      justifyContent: 'center',
+      verticalAlign: 'text-bottom',
       width: brushSizeMax,
       height: brushSizeMax,
     };

@@ -32,31 +32,35 @@ class DrawApp extends Component {
     }
     return (
       <div className={'DrawApp'}>
-        <div className={'draw-container'}>
-          <DrawArea
-            drawing={drawing}
-            pathColor={pathColor}
-            brushSize={brushSize}
-          />
-        </div>
-        
-        <div className={'controls-container'}>
+        <div className={'draw-full-container'}>
+          <div className={'draw-container'}>
+            <DrawArea
+              drawing={drawing}
+              pathColor={pathColor}
+              brushSize={brushSize}
+            />
+          </div>
           
-          <ColorPicker
-            pathColor={pathColor}
-            onPathColorChange={pathColor => this.setState({ pathColor })}
-          />
-          <BrushSizePicker
-            brushSize={brushSize}
-            onBrushSizeChange={brushSize => this.setState({ brushSize })}
-          />
-          <BrushIndicator
-            brushColor={pathColor}
-            brushSize={brushSize}
-          />
-          <br></br>
-          <ClearButton />
-          <SaveButton />
+          <div className={'controls-container'}>
+            <div>
+              <ColorPicker
+                pathColor={pathColor}
+                onPathColorChange={pathColor => this.setState({ pathColor })}
+              />
+              <BrushSizePicker
+                brushSize={brushSize}
+                onBrushSizeChange={brushSize => this.setState({ brushSize })}
+              />
+              <BrushIndicator
+                brushColor={pathColor}
+                brushSize={brushSize}
+              />
+            </div>
+            <div>
+              <ClearButton />
+              <SaveButton />
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -1,9 +1,13 @@
 .DrawApp .draw-container > .TouchControls {
-    max-width: 100%;
-    width: 600px;
+    width: 100vw;
+    max-height: calc(100vh - 130px);
     margin: auto;
     display: block;
     margin-top: 20px;
+}
+
+.DrawApp .draw-container > .TouchControls canvas {
+    box-sizing: border-box;
 }
 
 .DrawApp .controls-container {
@@ -14,4 +18,32 @@
 
 .DrawApp .controls-container .SaveButton {
     margin-left: 20px;
+}
+
+@media (orientation: landscape) {
+    .DrawApp .draw-container > .TouchControls {
+        display: inline-block;
+        margin-top: 0;
+        max-width: 100vh;
+        width: calc(100vw - 250px);
+    }
+
+    .DrawApp {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .DrawApp .controls-container {
+        display: inline-block;
+        width: auto;
+        height: 120px;
+    }
+
+    .DrawApp .draw-full-container {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

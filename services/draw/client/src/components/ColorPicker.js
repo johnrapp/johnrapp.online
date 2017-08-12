@@ -32,6 +32,9 @@ class ColorPicker extends Component {
           <RaisedButton
             onTouchTap={this.handleOpen}
             backgroundColor={pathColor}
+            style={{
+              verticalAlign: 'text-bottom'
+            }}
             label={'Color'}
           />
           <Popover
