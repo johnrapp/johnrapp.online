@@ -4,8 +4,6 @@ services:
     build: .
     ports:
       - "80:80"
-    volumes:
-      - "./index:/data/index"
   web:
     build: ./services/web
     ports:
