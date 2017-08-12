@@ -1,0 +1,345 @@
+html, body {
+    max-width: 100%;
+	overflow-x: hidden;
+	max-height: 100vh;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	font-style: italic;
+	background: url('/res/noise-pink.png');
+}
+
+a {
+	color: black;
+}
+
+.noise {
+	position: absolute;
+	top: 0;
+	z-index: 1; 
+	width: 2000px;
+	height: 400px;
+	left: 0;
+	background: url('/res/noise.png');
+}
+
+.content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	z-index: 4;
+}
+
+.background {
+	transform: rotate(-7deg);
+	position: absolute;
+	z-index: 2;
+	top: 150px;
+	left: -200px;
+	background: url('/res/noise-pink.png');;
+	width: 140vw;
+	height: 350px;
+}
+
+header .center-text {
+	font-size: 160px;
+	width: 100vw;
+}
+
+header .center-text span {
+	position: absolute;
+	left: 50%;
+	top: 100px;
+	transform: translate(-50%, -50%);
+}
+.text1 {
+	color: #ff35ff;
+	left: calc(50% - 4px) !important;
+	top: calc(100px - 4px) !important;
+}
+
+.text3 {
+	color: #00ffff;
+	left: calc(50% + 3px) !important;
+	top: calc(100px + 3px) !important;
+}
+
+.after-header {
+	position: absolute;
+	top: 270px;
+	left: 0;
+	width: 100vw;
+}
+
+.content-container {
+	width: 900px;
+	max-width: 90%;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin: auto;
+	position: relative;
+}
+
+#draw-container {
+	margin-top: 10px;
+	margin-left: 130px;
+	float: left;
+	width: 400px;
+	height: 300px;
+	position: relative;
+	color: black;
+}
+
+#draw-container div {
+	position: absolute;
+}
+
+#draw-container .pink-container {
+	top: 0;
+	left: 0;
+	width: 360px;
+	height: 260px; 
+}
+
+#draw-container .white-container {
+	top: 20px;
+	left: 20px;
+	width: 340px;
+	height: 240px;
+	padding: 20px;
+	box-sizing: border-box;
+	z-index: 2;
+}
+
+#draw-container .yellow-container {
+	top: 20px;
+	left: 20px;
+	width: 360px;
+	height: 260px;
+}
+
+#rap-container {
+	float: left;
+	width: 340px;
+	height: 390px;
+	position: relative;
+	font-size: 18px;
+}
+
+#rap-container div {
+	position: absolute;
+	transition: top 200ms, left 200ms, width 200ms, height 200ms;
+}
+
+#rap-container .pink-container {
+	width: 300px;
+	height: 350px;
+	left: 10px;
+	top: 10px;
+}
+
+#rap-container:hover .pink-container {
+	left: 0;
+	top: 0;
+}
+
+#rap-container .white-container {
+	width: 280px;
+	height: 330px;
+	left: 30px;
+	top: 30px;
+	box-sizing: border-box;
+	padding: 20px;
+	color: black;
+}
+#rap-container:hover .white-container {
+	width: 260px;
+	height: 310px;
+	left: 40px;
+	top: 40px;
+}
+
+
+#rap-container .yellow-container {
+	width: 305px;
+	height: 355px;
+	left: 30px;
+	top: 30px;
+}
+
+#rap-container:hover .yellow-container {
+	left: 40px;
+	top: 40px;
+}
+
+.pink-container {
+	background: #ff3eff;
+}
+
+.white-container {
+	background: #fff;
+}
+
+.yellow-container {
+	background: #ffff59;
+}
+
+.box-title {
+	position: static !important;
+	font-size: 40px;
+	text-align: right;
+	width: 100%;
+}
+
+#bottom-strip {
+	background: #222;
+	width: 100vw;
+	height: 25px;
+	padding-top: 2px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+}
+
+.marquee-pusher {
+	width: 200px;
+}
+
+.clearfix {
+	clear: both;
+}
+
+@media (max-width: 1200px) {
+	header .center-text {
+		font-size: 140px;
+	}
+}
+
+@media (max-width: 1000px) {
+	header .center-text {
+		font-size: 120px;
+	}
+} 
+
+@media (max-width: 960px) {
+	#draw-container {
+		float: right;
+		margin-left: 10px;
+	}
+}
+
+@media (max-width: 900px) {
+	header .center-text {
+		font-size: 100px;
+	}
+
+	.background {
+		top: 80px;
+		width: 2000px;
+	}
+
+	.after-header {
+		top: 200px;
+	}
+}
+
+@media (max-width: 850px) {
+	/*TODO CONT*/
+	#draw-container {
+		margin-top: 24px;
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+
+	#rap-container {
+		float: none;
+		width: 340px;
+		height: 390px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media (max-width: 750px) {
+	header .center-text {
+		font-size: 80px;
+	}
+
+	.background {
+		top: 35px;
+	}
+
+	header .center-text span {
+		top: 50px;
+	}
+
+	.text1 {
+		top: calc(50px - 4px) !important;
+	}
+
+	.text3 {
+		top: calc(50px + 3px) !important;
+	}
+
+	.after-header {
+		top: 140px;
+	}
+}
+
+@media (max-width: 600px) {
+	header .center-text {
+		font-size: 60px;
+	}
+
+	.background {
+		top: 20px;
+	}
+
+	.after-header {
+		top: 120px;
+	}
+}
+
+@media (max-width: 450px) {
+	header .center-text {
+		font-size: 50px;
+	}
+
+	.background {
+		top: 5px;
+	}
+
+	.after-header {
+		top: 100px;
+	}
+
+	#draw-container {
+		width: 300px;
+	}
+
+	#draw-container .pink-container {
+		width: 260px;
+	}
+
+	#draw-container .white-container {
+		width: 240px;
+	}
+
+	#draw-container .yellow-container {
+		width: 260px;
+	}
+}
+
+@media (max-width: 380px) {
+	header .center-text {
+		font-size: 40px;
+	}
+}
