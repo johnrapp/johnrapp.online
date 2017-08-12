@@ -4,6 +4,8 @@ services:
     build: .
     ports:
       - "80:80"
+    links:
+      - draw
   web:
     build: ./services/web
     ports:
