@@ -1,13 +1,15 @@
 version: "2.0"
 services:
-  http:
+  nginx:
     build: .
     ports:
       - "80:80"
     volumes:
       - "./index:/data/index"
-    links:
-      - "draw"
+  web:
+    build: ./services/web
+    ports:
+      - "8088:80"
   draw:
     build: ./services/draw
     ports:
