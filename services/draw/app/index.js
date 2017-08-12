@@ -17,9 +17,9 @@ module.exports = function drawApp(io) {
             socket.broadcast.emit('path.put', { id, path });
         });
 
-        socket.on('drawing.archive', async ({ name }) => {
+        socket.on('drawing.archive', async ({ drawing, name }) => {
             log.info('ARCHIVE', name);
-            const result = await archiveDrawing(getDrawing(), name);
+            const result = await archiveDrawing(drawing, name);
             socket.emit('drawing.archiveResult', result);
         });
     });

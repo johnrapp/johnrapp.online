@@ -28,12 +28,11 @@ socket.on('path.put', ({ id, path }) => {
     drawingObservable.onNext(drawing);
 });
 
-
 const saveResultSubject = new Rx.Subject();
 export const saveResultObservable = saveResultSubject;
 
 export function saveDrawing(name) {
-    socket.emit('drawing.archive', { name });
+    socket.emit('drawing.archive', { drawing, name });
 }
 
 socket.on('drawing.archiveResult', (result) => {
