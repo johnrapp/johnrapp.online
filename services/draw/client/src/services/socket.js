@@ -1,11 +1,14 @@
 import io from 'socket.io-client';
 
 const location = window.location;
-const HOST = ((host) => {
-
-})(location.host);
-
-
+const HOST = ((location) => {
+    const isLocalDevelopment = host.port === '3000';
+    if (isLocalDevelopment) {
+        return `${location.hostname}:${8080}`;
+    } else {
+        return location.host;
+    }
+})(location);
 
 location.host === 'localhost:3000'
     ? 'localhost:8080'

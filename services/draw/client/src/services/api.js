@@ -1,8 +1,15 @@
 import axios from 'axios';
 
 const location = window.location;
-const isLocalDevelopment = location.hostname === 'localhost';
-const HOST = isLocalDevelopment ? 'http://localhost:8080' : '';
+const HOST = ((location) => {
+    const isLocalDevelopment = host.port === '3000';
+    if (isLocalDevelopment) {
+        return `${location.hostname}:${8080}`;
+    } else {
+        return location.host;
+    }
+})(location);
+
 
 export function getArchivedDrawings() {
     return axios({
