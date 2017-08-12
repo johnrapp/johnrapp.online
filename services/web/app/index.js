@@ -12,22 +12,22 @@ module.exports = function(app) {
 }
 
 function bindRoutes(router) {
-    app.get('/', (req, res) => {
+    router.get('/', (req, res) => {
         let { version = assignVersion(req) } = req.cookies;
         sendVersion(version, res);
     });
 
     versions.forEach(version => {
-        app.get(`/${version}`, (req, res) => {
+        router.get(`/${version}`, (req, res) => {
             sendVersion(version, res);
         });
-        app.get(`/${version}`, (req, res) => {
+        router.get(`/${version}`, (req, res) => {
             sendVersion(version, res);
         });
-        app.get(`/${version}/`, (req, res) => {
+        router.get(`/${version}/`, (req, res) => {
             res.redirect(`/${version}`);
         });
-        // app.get(`/${version}/**`, (req, res) => {
+        // router.get(`/${version}/**`, (req, res) => {
         //     console.log('/version/**')
         //     return res.send(req.url);
         //     res.sendFile(path.join(publicDir, req.url));
