@@ -9,17 +9,7 @@ export default class DrawingPath {
         putPathPoint(this.id, point, color, brushSize);
     }
 
-    seriesCounter = 0;
-    nextPointInSeries() {
-        return ++this.seriesCounter;
-    }
-
-    append({ x, y }) {
-        const point = {
-            x,
-            y,
-            numberInSeries: this.nextPointInSeries()
-        };
+    append(point) {
         putPathPoint(this.id, point, this.color, this.brushSize);
     }
 }

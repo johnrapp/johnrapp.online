@@ -22,5 +22,7 @@ module.exports = function drawApp(io) {
             const result = await archiveDrawing(drawing, name);
             socket.emit('drawing.archiveResult', result);
         });
+
+        socket.on('server-log', (args) => console.log(...args));
     });
 };

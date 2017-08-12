@@ -8,6 +8,7 @@ import SaveButton from './SaveButton';
 import { drawingObservable } from '../services/drawing';
 import { defaultPathColor } from '../services/path-colors';
 import { defaultBrushSize } from '../services/brush-sizes';
+import log from '../services/server-log';
 
 import './DrawApp.css';
 
@@ -29,7 +30,7 @@ class DrawApp extends Component {
     if (!drawing) {
       return null;
     }
-    console.log(drawing)
+    log(drawing)
     return (
       <div className={'DrawApp'}>
         <div className={'draw-container'}>
