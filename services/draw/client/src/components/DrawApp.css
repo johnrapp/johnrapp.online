@@ -1,5 +1,5 @@
 .DrawApp .draw-container > .TouchControls {
-    max-width: 80%;
+    max-width: 100%;
     width: 600px;
     margin: auto;
     display: block;
@@ -10,4 +10,8 @@
     width: 100%;
     text-align: center;
     margin-top: 10px;
+}
+
+.DrawApp .controls-container .SaveButton {
+    margin-left: 20px;
 }
