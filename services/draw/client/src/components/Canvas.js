@@ -6,6 +6,8 @@ const CANVAS_HEIGHT = 500;
 const LINE_JOIN = 'round';
 const LINE_CAP = 'round';
 
+const requestAnimationFrame = window.requestAnimationFrame;
+
 class Canvas extends Component {
   renderCanvas(canvas, paths) {
     if (!canvas) { return; }
@@ -27,7 +29,7 @@ class Canvas extends Component {
     };
 
     const pathEntries = Object.entries(paths);
-    pathEntries.forEach(([id, path]) => drawPath(path));
+    requestAnimationFrame(() => pathEntries.forEach(([id, path]) => drawPath(path)));
   }
 
   render() {
