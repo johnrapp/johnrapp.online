@@ -1,5 +1,16 @@
 .ViewApp {
     height: 100vh;
-    max-height: 100vh;
     margin: auto;
+}
+
+@media (orientation: landscape) {
+    .ViewApp {
+        height: 100vh;
+        width: 100vh;
+    }
+}
+
+.ViewApp canvas {
+    box-sizing: border-box;
+    border: none !important;
 }
