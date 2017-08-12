@@ -56,7 +56,7 @@ class ClearButton extends Component {
     ];
 
     return (
-      <span>
+      <span className={'SaveButton'}>
         <RaisedButton
           label="Save"
           primary={true}

@@ -29,7 +29,7 @@ class DrawApp extends Component {
     if (!drawing) {
       return null;
     }
-
+    console.log(drawing)
     return (
       <div className={'DrawApp'}>
         <div className={'draw-container'}>
@@ -41,8 +41,7 @@ class DrawApp extends Component {
         </div>
         
         <div className={'controls-container'}>
-          <ClearButton />
-          <SaveButton />
+          
           <ColorPicker
             pathColor={pathColor}
             onPathColorChange={pathColor => this.setState({ pathColor })}
@@ -55,6 +54,9 @@ class DrawApp extends Component {
             brushColor={pathColor}
             brushSize={brushSize}
           />
+          <br></br>
+          <ClearButton />
+          <SaveButton />
         </div>
       </div>
     );
