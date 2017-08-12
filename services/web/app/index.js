@@ -14,6 +14,7 @@ module.exports = function(app) {
 function bindRoutes(router) {
     router.get('/', (req, res) => {
         let { version = assignVersion(req) } = req.cookies;
+        console.log(req.ip)
         sendVersion(version, res);
     });
 
@@ -39,6 +40,6 @@ function bindRoutes(router) {
     }
 
     function assignVersion(req) {
-        return 'shitty';
+        return 'retro';
     }
 }
