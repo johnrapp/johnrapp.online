@@ -6,11 +6,29 @@ const CANVAS_HEIGHT = 500;
 const LINE_JOIN = 'round';
 const LINE_CAP = 'round';
 
-const requestAnimationFrame = window.requestAnimationFrame;
+const { requestAnimationFrame, cancelAnimationFrame } = window;
 
 class Canvas extends Component {
-  renderCanvas(canvas, paths) {
-    if (!canvas) { return; }
+
+  drawing = null;
+  animationFrame = null;
+
+  componentWillUnmount() {
+      cancelAnimationFrame(this.animationFrame);
+  }
+
+  receivedCanvas(canvas, drawing) {
+    if (canvas) {
+      this.drawing = drawing;
+      this.canvas = canvas;
+      if (!this.animationFrame) {
+        this.queueFrame();
+      }
+    }
+  }
+
+  renderCanvas() {
+    const { canvas, drawing: { paths } } = this;
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
@@ -29,17 +47,22 @@ class Canvas extends Component {
     };
 
     const pathEntries = Object.entries(paths);
-    requestAnimationFrame(() => pathEntries.forEach(([id, path]) => drawPath(path)));
+    pathEntries.forEach(([id, path]) => drawPath(path));
+    this.queueFrame();
+  }
+
+  queueFrame() {
+    this.animationFrame = requestAnimationFrame(() => this.renderCanvas());
   }
 
   render() {
-    const { drawing: { paths } } = this.props; 
+    const { drawing } = this.props; 
     
     return (
         <canvas
           width={CANVAS_WIDTH}
           height={CANVAS_HEIGHT}
-          ref={canvas => this.renderCanvas(canvas, paths)}
+          ref={canvas => this.receivedCanvas(canvas, drawing)}
           style={{
             border: '1px solid black',
             width: '100%',
