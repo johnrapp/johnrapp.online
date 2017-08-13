@@ -5,6 +5,7 @@ const versions = require('./versions');
 const rootDir = require('../root-dir');
 const publicDir = path.join(rootDir, 'public');
 const hashInt = require('./hash-int');
+const assignVersion = require('./assign-version');
 
 module.exports = function(app) {
     const router = express.Router({ strict: true });
@@ -37,21 +38,6 @@ function bindRoutes(router) {
 
     function sendVersion(version, res) {
         res.sendFile(path.join(publicDir, `${version}.html`));
-    }
-
-    const versionCookieOptions = {
-        expires: new Date(Date.now() + 1000 * 3600 * 24 * 30),
-        httpOnly: true
-    };
-    function assignVersion(req, res) {
-        const ip = req.ip;
-        const ipHash = hashInt(ip);
-        const version = versions[ipHash % versions.length];
-
-        //res.cookie('version', version, versionCookieOptions);
-
-        console.log('Assigned', req.ip, 'to', version);
-        return version;
     }
     
 }
