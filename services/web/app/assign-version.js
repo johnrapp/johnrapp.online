@@ -7,7 +7,7 @@ const versionCookieOptions = {
 module.exports = function assignVersion(req, res) {
     const version = determineVersion(req);
 
-    //res.cookie('version', version, versionCookieOptions);
+    res.cookie('version', version, versionCookieOptions);
 
     console.log('Assigned', req.ip, 'to', version);
     return version;
