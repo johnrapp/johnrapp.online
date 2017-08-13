@@ -1,4 +1,4 @@
-const versions = require('./version');
+const versions = require('./versions');
 
 const versionCookieOptions = {
     expires: false,
