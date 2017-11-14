@@ -5,8 +5,50 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <style>
+            body {
+                margin: 0;
+            }
+            #flare-img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0.6;
+            }
+            .flare {
+                border-radius: 100%;
+                position: absolute;
+                border: 10px solid rgb(255, 133, 0);
+                box-sizing: border-box;
+                opacity: 1;
+            }
+            #inner-flare {
+                width: 72px;
+                height: 72px;
+                top: 188px;
+                left: 394px;
+            }
+            #outer-flare {
+                width: 102px;
+                height: 102px;
+                top: 173px;
+                left: 379px;
+            }
+        </style>
     </head>
     <body>
-        <img src="saga.png">
+        <img src="saga.png" width="568px">
+        <!-- <img id="flare-img" src="flare.png" width="568px"> -->
+        <div id="inner-flare" class="flare"></div>
+        <div id="outer-flare" class="flare"></div>
+
+        <script>
+            const flares = document.querySelectorAll('.flare');
+            requestAnimationFrame(function render(time) {
+                const opacity = ((Math.sin(time / 300) + 1) / 2) * 0.7;
+                flares.forEach(flare => flare.style.opacity = opacity);
+                requestAnimationFrame(render);
+            });
+        </script>
     </body>
 </html>
