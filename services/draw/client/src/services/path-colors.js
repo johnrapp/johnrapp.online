@@ -1,6 +1,6 @@
 const pathColors = [
     '#1A1617',
-    '#EEEBE6',
+    '#fff',
     '#3498db',
     '#2ecc71',
     '#f1c40f',
@@ -10,6 +10,7 @@ const pathColors = [
     '#303030',
     '#E9A3A5',
     '#B7447A',
+    '#FFDABE',
     '#563725',
     '#C65E4A',
     '#2E3D6A',
