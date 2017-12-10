@@ -25,7 +25,7 @@ a {
 	width: 2000px;
 	height: 400px;
 	left: 0;
-	background: url('noise.png');
+	background: url('res/noise.png');
 }
 
 .content {
