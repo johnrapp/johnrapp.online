@@ -1,9 +1,13 @@
 const pathColors = [
     '#000',
     '#fff',
-    '#f00',
-    '#0f0',
-    '#00f',
+    '#3498db',
+    '#2ecc71',
+    '#f1c40f',
+    '#e74c3c',
+    // Guaranteed
+    '#E9A3A5',
+    '#B7447A'
 ];
 
 export function defaultPathColor() {
